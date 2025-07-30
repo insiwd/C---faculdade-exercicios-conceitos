@@ -2,32 +2,37 @@
 #include <stdio.h>
 
 int main() {
-    char livros[3][100];
-    char autor[3][49];
+    // matrizes
+    char tituloLivro[3][101];
+    char nomeAutor[3][51];
+
+    // aqui se usa um array de inteiros
     int anoPublicacao[3];
     
-    int i, escolha;
+    int i;
     char c;
 
     // entrada de dados
     for (i = 0; i < 3; i++) {
         printf("Digite o nome do livro %d: ", i + 1);
-        fgets(livros[i], 100, stdin);
-
+        fgets(tituloLivro[i], 100, stdin);
+        
         printf("Digite o nome do autor: ");
-        scanf("%s", &autor[i]);
-        c = getchar();
+        // uso o fgets para controlar o tamanho
+        fgets(nomeAutor[i], 50, stdin);
 
         printf("Digite a data de publicação: ");
+
+        // usa o scanf para aceitar inteiro, limpa o buffer depois
         scanf("%d", &anoPublicacao[i]);
         c = getchar();
-
+        
         printf("\n");
     }
 
     // mostrar dados
     for (i = 0; i < 3; i++) {
-        printf("Livro: %s \t Autor: %s \t Ano: %d\n", livros[i], autor[i], anoPublicacao[i]);
+        printf("Livro: %s \t Autor: %s \t Ano: %d\n", tituloLivro[i], nomeAutor[i], anoPublicacao[i]);
     }
 
     return 0;
