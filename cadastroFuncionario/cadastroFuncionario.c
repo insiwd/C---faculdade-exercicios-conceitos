@@ -1,30 +1,41 @@
+// 06/08/25
+
 #include <stdio.h>
+#include <string.h>
+
+// todo funcionário tem cargo e nome
+struct Funcionario {
+    char nome[50];
+    char cargo[30];
+};
 
 int main() {
-    char funcionarios[5];
-    char nomeFuncionario[5][50];
-    char cargoFuncionario[5][30];
+    // char funcionarios[5];
+    struct Funcionario funcionarios[5];
 
-    int i;
-    char c;
+    int repetido = 0;
 
-    for (i = 0; i < 5; i++) {
+    for (int i = 0; i < 5; i++) {
         printf("Digite o nome do %do funcionário(a): ", i + 1);
-        fgets(nomeFuncionario[i], 50, stdin);
+        scanf("%s", funcionarios[i].nome);
 
-        
         printf("Digite o cargo do %do funcionário(a): ", i + 1);
-        fgets(cargoFuncionario[i], 30, stdin);
+        scanf("%s", funcionarios[i].cargo);
         printf("\n");
-
-        if (cargoFuncionario[i] )
     }
 
-    for (i = 0; i < 5; i++) {
-        printf("Nome: %s\n Cargo: %s", nomeFuncionario[i], cargoFuncionario[i]);
-        if (cargoFuncionario[i] == cargoFuncionario[i]) {
-            printf("Existem funcionários com o mesmo cargo! ");
+    for (int i = 0; i < 5; i++) {
+        // começamos J à frente de i 
+        for (int j = i + 1; j < 5; j++) {
+            int comparacao = strcmp(funcionarios[i].cargo, funcionarios[j].cargo);
+            if (comparacao == 0) {
+                repetido++;
+                printf("%s %s",funcionarios[j].nome, funcionarios[j].cargo);
+                printf("%s %s", funcionarios[i].nome, funcionarios[i].cargo);
+            }
+            else {
+                printf("nome: %s cargo: %s\n", funcionarios[i].nome, funcionarios[i].cargo);
+            }
         }
     }
-
 }
