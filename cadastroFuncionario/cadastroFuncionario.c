@@ -30,8 +30,8 @@ int main() {
             int comparacao = strcmp(funcionarios[i].cargo, funcionarios[j].cargo);
             if (comparacao == 0) {
                 repetido++;
-                printf("%s %s",funcionarios[j].nome, funcionarios[j].cargo);
-                printf("%s %s", funcionarios[i].nome, funcionarios[i].cargo);
+                printf("Nome: %s Cargo: %s\n",funcionarios[j].nome, funcionarios[j].cargo);
+                printf("Funcionários com o mesmo cargo:\n Nome: %s \n Cargo: %s", funcionarios[i].nome, funcionarios[i].cargo);
             }
             else {
                 printf("nome: %s cargo: %s\n", funcionarios[i].nome, funcionarios[i].cargo);
